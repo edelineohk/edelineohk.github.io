@@ -177,11 +177,11 @@
         <div class="section active" id="about">
           <h2>About</h2>
           <p>
-            Hi, I'm Edeline. I'm passionate about building things and solving interesting problems.
+            Hi, I'm Edeline! I study Politics and International Relations at the University of Melbourne. Alongside university, I’ve worked across the Australian Government in Canberra and Washington, D.C., with experience in public administration, trade and economic security.
           </p>
           <p>
-            When I'm not coding, you'll find me exploring new ideas, contributing to open source,
-            or working on personal projects that excite me.
+I’m curious about how politics, institutions and ideas shape public life, especially where different fields and perspectives overlap. I like asking questions, learning quickly, and following an interesting idea further than I probably need to.            
+Here you’ll find some of my work, projects and experience. Thanks for stopping by!
           </p>
           <div class="links">
             <a href="https://github.com" target="_blank">GitHub</a>

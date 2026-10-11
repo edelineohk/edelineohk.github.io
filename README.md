@@ -183,9 +183,8 @@
 I’m especially interested in how Australia navigates the international questions shaping our time, from supply security in a new technological and climate era to migration, borders and sovereignty. Currently, when I’m not doing school work, I enjoy some creative labour and local history. Here you’ll find some of my projects and my resume. Thanks for stopping by!
           </p>
           <div class="links">
-            <a href="https://github.com" target="_blank">GitHub</a>
-            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-            <a href="mailto:hello@edeline.dev">Email</a>
+            <a href="https://linkedin.com" target="www.linkedin.com/in/edeline-ohk111
+            <a href="mailto:ohkedeline@gmail.com
           </div>
         </div>
 

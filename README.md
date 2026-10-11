@@ -564,7 +564,7 @@
         <h2>Resume</h2>
 
         <p>
-          My experience spans government, international affairs,
+          I have some experience across government, international affairs,
           research and public administration.
         </p>
 

@@ -3,253 +3,503 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edeline Ohk| Portfolio</title>
-    <meta
-      name="description"
-      content="Personal portfolio website for Alex Carter — creative strategist, designer, and builder."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
+    <title>Laura Chapman</title>
+    <style>
+      :root {
+        --bg: #efefef;
+        --browser-bg: #dadada;
+        --tab-bg: #f2f2f2;
+        --chrome: #e8e8e8;
+        --line: #d0d0d0;
+        --text: #1a1a1a;
+        --muted: #4a4a4a;
+        --blue: #bfe1f4;
+        --tab-text: #5b5b5b;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Georgia", "Times New Roman", serif;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+      }
+
+      .browser {
+        width: 100%;
+        min-height: 100vh;
+        background: var(--bg);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .topbar {
+        height: 58px;
+        background: var(--chrome);
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        padding: 0 18px;
+        gap: 14px;
+      }
+
+      .browser-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 125px;
+      }
+
+      .nav-arrow {
+        width: 12px;
+        height: 12px;
+        border: solid #5b5b5b;
+        border-width: 0 2px 2px 0;
+        transform: rotate(135deg);
+        opacity: 0.8;
+      }
+
+      .nav-arrow.right {
+        transform: rotate(-45deg);
+      }
+
+      .nav-arrow.up {
+        transform: rotate(225deg);
+      }
+
+      .refresh {
+        width: 18px;
+        height: 18px;
+        border: 2px solid #4f4f4f;
+        border-right-color: transparent;
+        border-radius: 50%;
+        position: relative;
+        opacity: 0.8;
+      }
+
+      .refresh::after {
+        content: "";
+        position: absolute;
+        right: -5px;
+        top: -2px;
+        width: 0;
+        height: 0;
+        border-left: 6px solid #4f4f4f;
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+        transform: rotate(35deg);
+      }
+
+      .addressbar {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+
+      .bar {
+        width: min(100%, 900px);
+        height: 34px;
+        background: rgba(255,255,255,0.5);
+        border: 1px solid rgba(0,0,0,0.08);
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        padding: 0 14px;
+        gap: 10px;
+        color: #202020;
+        font-size: 15px;
+        font-family: Arial, sans-serif;
+      }
+
+      .lock {
+        width: 12px;
+        height: 12px;
+        border: 2px solid #555;
+        border-radius: 2px;
+        position: relative;
+        opacity: 0.7;
+      }
+
+      .lock::before {
+        content: "";
+        position: absolute;
+        width: 7px;
+        height: 7px;
+        border: 2px solid #555;
+        border-bottom: none;
+        border-radius: 8px 8px 0 0;
+        left: 1px;
+        top: -8px;
+      }
+
+      .url {
+        font-family: Arial, sans-serif;
+      }
+
+      .toolbar-icons {
+        width: 150px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .icon {
+        width: 14px;
+        height: 14px;
+        border-radius: 3px;
+        background: #5a5a5a;
+        opacity: 0.8;
+      }
+
+      .profile {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #5a5a5a;
+      }
+
+      .tab-row {
+        height: 52px;
+        background: var(--chrome);
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        align-items: flex-end;
+        padding: 0 18px 0 12px;
+        gap: 8px;
+      }
+
+      .tab {
+        height: 40px;
+        min-width: 126px;
+        border: 1px solid var(--line);
+        border-bottom: none;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        background: var(--tab-bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        color: var(--tab-text);
+        font-family: Arial, sans-serif;
+        font-size: 15px;
+        padding: 0 14px;
+      }
+
+      .tab.active {
+        background: white;
+        border-bottom: 1px solid white;
+      }
+
+      .gmail-icon {
+        width: 18px;
+        height: 14px;
+        background: #ea4335;
+        border-radius: 3px;
+        position: relative;
+      }
+
+      .gmail-icon::before,
+      .gmail-icon::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: transparent;
+      }
+
+      .gmail-icon::before {
+        border-left: 10px solid white;
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+        left: 4px;
+        top: 1px;
+      }
+
+      .gmail-icon::after {
+        border-right: 10px solid white;
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+        right: 4px;
+        top: 1px;
+      }
+
+      .page {
+        flex: 1;
+        background: #f5f5f5;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 38px;
+      }
+
+      .content {
+        width: min(1100px, calc(100% - 80px));
+        display: flex;
+        justify-content: center;
+      }
+
+      .inner {
+        width: 100%;
+        max-width: 1030px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .name {
+        font-size: clamp(3.1rem, 5.5vw, 6rem);
+        line-height: 1;
+        letter-spacing: -0.06em;
+        font-weight: 400;
+        margin-top: 10px;
+        margin-bottom: 26px;
+      }
+
+      .nav-tabs {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 38px;
+      }
+
+      .nav-tab {
+        height: 38px;
+        min-width: 110px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        color: #2f2f2f;
+        background: transparent;
+        border: 1px solid transparent;
+      }
+
+      .nav-tab.active {
+        background: var(--blue);
+        border-color: rgba(90, 164, 214, 0.15);
+      }
+
+      .bio-wrap {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+      }
+
+      .bio-grid {
+        width: min(100%, 920px);
+        display: grid;
+        grid-template-columns: 360px 1fr;
+        gap: 60px;
+        align-items: start;
+      }
+
+      .photo-card {
+        width: 100%;
+        max-width: 330px;
+        height: 310px;
+        margin-left: 48px;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 0 0 0 1px rgba(0,0,0,0.04);
+      }
+
+      .photo-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .bio-copy {
+        padding-top: 4px;
+      }
+
+      h2 {
+        font-size: clamp(2.2rem, 3vw, 3rem);
+        font-weight: 400;
+        margin: 0 0 24px 0;
+        letter-spacing: -0.04em;
+      }
+
+      p {
+        margin: 0;
+        font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+        line-height: 1.55;
+        color: #2b2b2b;
+        max-width: 720px;
+      }
+
+      .links {
+        margin-top: 36px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .links a {
+        color: #1d1d1d;
+        text-decoration: none;
+        font-size: clamp(1.15rem, 1.5vw, 1.45rem);
+        margin: 0 0 8px 0;
+        width: fit-content;
+        position: relative;
+      }
+
+      .links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 100%;
+        height: 1px;
+        background: rgba(0,0,0,0.35);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.18s ease;
+      }
+
+      .links a:hover::after {
+        transform: scaleX(1);
+      }
+
+      @media (max-width: 900px) {
+        .bio-grid {
+          grid-template-columns: 1fr;
+          gap: 26px;
+          justify-items: center;
+        }
+
+        .photo-card {
+          margin-left: 0;
+        }
+
+        .bio-copy {
+          text-align: left;
+          width: 100%;
+        }
+
+        .page {
+          padding-top: 24px;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .tab-row {
+          overflow-x: auto;
+          padding-bottom: 0;
+        }
+
+        .tab {
+          min-width: 110px;
+        }
+
+        .content {
+          width: calc(100% - 30px);
+        }
+
+        .name {
+          margin-bottom: 18px;
+        }
+
+        .nav-tabs {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .bar {
+          font-size: 13px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="page-shell">
-      <header class="site-header">
-        <div class="container nav">
-          <a href="#top" class="brand">
-            <span class="brand-mark">A</span>
-            <span class="brand-name">Alex Carter</span>
-          </a>
-
-          <nav class="nav-links">
-            <a href="#about">About</a>
-            <a href="#work">Work</a>
-            <a href="#services">Services</a>
-            <a href="#journal">Journal</a>
-            <a href="#contact">Contact</a>
-          </nav>
-
-          <a href="#contact" class="nav-cta">Book a call</a>
+    <div class="browser">
+      <div class="topbar">
+        <div class="browser-actions">
+          <div class="nav-arrow"></div>
+          <div class="nav-arrow right"></div>
+          <div class="refresh"></div>
         </div>
-      </header>
 
-      <main id="top">
-        <section class="hero">
-          <div class="container hero-grid">
-            <div class="hero-copy">
-              <p class="eyebrow">Independent designer & creative strategist</p>
-              <h1>
-                I build thoughtful brands and digital experiences
-                that feel clear, elevated, and human.
-              </h1>
-              <p class="intro">
-                I help founders, brands, and teams turn ideas into sharp visual systems,
-                content, and digital experiences that make a meaningful impression.
-              </p>
-
-              <div class="actions">
-                <a href="#work" class="button button-primary">View work</a>
-                <a href="#contact" class="button button-secondary">Let’s talk</a>
-              </div>
-
-              <ul class="hero-meta">
-                <li><strong>8+</strong> years of experience</li>
-                <li><strong>35+</strong> projects launched</li>
-                <li><strong>NYC</strong> based</li>
-              </ul>
-            </div>
-
-            <div class="hero-visual">
-              <div class="portrait-card">
-                <div class="portrait-glow"></div>
-                <div class="portrait-figure">
-                  <div class="portrait-head"></div>
-                  <div class="portrait-body"></div>
-                </div>
-              </div>
-            </div>
+        <div class="addressbar">
+          <div class="bar">
+            <div class="lock"></div>
+            <div class="url">laurachapman.github.io</div>
           </div>
-        </section>
-
-        <section id="about" class="about section">
-          <div class="container split">
-            <div class="section-heading">
-              <p class="eyebrow">About</p>
-              <h2>Designing with clarity, intention, and personality.</h2>
-            </div>
-
-            <div class="about-copy">
-              <p>
-                I’m Alex, a multidisciplinary designer and creative strategist working at the
-                intersection of branding, product thinking, and digital storytelling.
-              </p>
-              <p>
-                My process blends strategy with craft — helping teams define the right message,
-                shape the right experience, and build confidence in how they show up online.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section id="work" class="section work">
-          <div class="container">
-            <div class="section-header">
-              <p class="eyebrow">Selected work</p>
-              <h2>Recent projects and collaborations.</h2>
-            </div>
-
-            <div class="project-grid">
-              <article class="project-card">
-                <div class="project-image project-one"></div>
-                <div class="project-copy">
-                  <div class="project-meta">
-                    <span>Brand Identity</span>
-                    <span>Strategy</span>
-                  </div>
-                  <h3>North & Co.</h3>
-                  <p>
-                    Positioning and visual identity for a modern consulting practice helping
-                    ambitious teams grow with clarity.
-                  </p>
-                  <a href="#">View case study →</a>
-                </div>
-              </article>
-
-              <article class="project-card">
-                <div class="project-image project-two"></div>
-                <div class="project-copy">
-                  <div class="project-meta">
-                    <span>Product Design</span>
-                    <span>UX</span>
-                  </div>
-                  <h3>Harbor Studio</h3>
-                  <p>
-                    A refined customer journey and digital experience for a lifestyle brand
-                    expanding into a new product line.
-                  </p>
-                  <a href="#">View case study →</a>
-                </div>
-              </article>
-
-              <article class="project-card">
-                <div class="project-image project-three"></div>
-                <div class="project-copy">
-                  <div class="project-meta">
-                    <span>Creative Direction</span>
-                    <span>Campaign</span>
-                  </div>
-                  <h3>Field Notes Journal</h3>
-                  <p>
-                    Editorial design and storytelling system to sharpen brand voice and deepen
-                    audience connection.
-                  </p>
-                  <a href="#">View case study →</a>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section id="services" class="section services">
-          <div class="container">
-            <div class="section-header narrow">
-              <p class="eyebrow">Services</p>
-              <h2>Creative support for ambitious ideas.</h2>
-            </div>
-
-            <div class="service-grid">
-              <div class="service-card">
-                <span class="service-number">01</span>
-                <h3>Brand direction</h3>
-                <p>
-                  Positioning, storytelling, and expressive identities that make your work feel
-                  immediately coherent and memorable.
-                </p>
-              </div>
-
-              <div class="service-card">
-                <span class="service-number">02</span>
-                <h3>Website design</h3>
-                <p>
-                  Thoughtful digital experiences that balance aesthetics, clarity, and conversion
-                  without losing personality.
-                </p>
-              </div>
-
-              <div class="service-card">
-                <span class="service-number">03</span>
-                <h3>Creative systems</h3>
-                <p>
-                  Smart visual frameworks, content structures, and templates that help teams stay
-                  consistent as they grow.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="journal" class="section journal">
-          <div class="container">
-            <div class="section-header">
-              <p class="eyebrow">Journal</p>
-              <h2>Notes on design, process, and building with intention.</h2>
-            </div>
-
-            <div class="journal-grid">
-              <article class="journal-card">
-                <p class="journal-date">May 2026</p>
-                <h3>Why clarity is the most underrated design principle.</h3>
-                <a href="#">Read article →</a>
-              </article>
-
-              <article class="journal-card">
-                <p class="journal-date">April 2026</p>
-                <h3>What makes a brand feel premium without becoming generic.</h3>
-                <a href="#">Read article →</a>
-              </article>
-
-              <article class="journal-card">
-                <p class="journal-date">March 2026</p>
-                <h3>How visual systems help small teams move faster and feel stronger.</h3>
-                <a href="#">Read article →</a>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section id="contact" class="section contact">
-          <div class="container contact-wrap">
-            <div class="contact-copy">
-              <p class="eyebrow">Let’s work together</p>
-              <h2>Need a sharper brand, clearer message, or more polished digital presence?</h2>
-            </div>
-
-            <div class="contact-actions">
-              <a href="mailto:hello@alexcarter.studio" class="button button-primary">
-                hello@alexcarter.studio
-              </a>
-              <div class="socials">
-                <a href="#">LinkedIn</a>
-                <a href="#">Instagram</a>
-                <a href="#">Dribbble</a>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer class="site-footer">
-        <div class="container footer-inner">
-          <p>© 2026 Alex Carter</p>
-          <p>Made thoughtfully for the web.</p>
         </div>
-      </footer>
+
+        <div class="toolbar-icons">
+          <div class="icon"></div>
+          <div class="profile"></div>
+          <div class="icon"></div>
+        </div>
+      </div>
+
+      <div class="tab-row">
+        <div class="tab">
+          <div class="gmail-icon"></div>
+          <span>Gmail</span>
+        </div>
+        <div class="tab active">
+          <div class="gmail-icon"></div>
+          <span>Gmail</span>
+        </div>
+      </div>
+
+      <div class="page">
+        <div class="content">
+          <div class="inner">
+            <div class="name">Laura Chapman</div>
+
+            <div class="nav-tabs">
+              <div class="nav-tab active">About</div>
+              <div class="nav-tab">Projects</div>
+              <div class="nav-tab">Resume</div>
+            </div>
+
+            <div class="bio-wrap">
+              <div class="bio-grid">
+                <div class="photo-card">
+                  <img
+                    src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80"
+                    alt="Laura portrait"
+                  />
+                </div>
+
+                <div class="bio-copy">
+                  <h2>Hi, I'm Laura!</h2>
+
+                  <p>
+                    I work on trust and safety for Google Search AI in New York, where I'm from.
+                    I studied computer science at Harvard (graduated 2020). When I'm not at work,
+                    I enjoy additional creative labor — here you'll find my projects and my resume.
+                    Thanks for stopping by!
+                  </p>
+
+                  <div class="links">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Github</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <script src="script.js"></script>
   </body>
 </html>

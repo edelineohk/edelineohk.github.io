@@ -1,60 +1,31 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f4f5f3">
   <title>Edeline Ohk</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <script>
-    try {
-      if (localStorage.getItem("edeline-theme") === "night") {
-        document.documentElement.dataset.theme = "night";
-      }
-    } catch {}
-  </script>
 
   <style>
     :root {
-      color-scheme: light;
-      --background: #f4f5f3;
-      --text: #656c74;
-      --link: #3159a3;
-      --button: #e5e7eb;
-      --highlight: #e2e8e2;
-      --border: #cdd4cf;
-      --accent: #bac8bd;
-      --font: "Nunito Sans", sans-serif;
+      --globe-cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%2213%22%20fill%3D%22white%22%20stroke%3D%22white%22%20stroke-width%3D%224%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.4%22%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%2212%22%2F%3E%3Cellipse%20cx%3D%2216%22%20cy%3D%2216%22%20rx%3D%226%22%20ry%3D%2212%22%2F%3E%3Cpath%20d%3D%22M4%2016h24M6%209q10%206%2020%200M6%2023q10-6%2020%200%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") 16 16;
     }
 
-    :root[data-theme="night"] {
-      color-scheme: dark;
-      --background: #1c2230;
-      --text: #d9dfdc;
-      --link: #cad4ce;
-      --button: #363d45;
-      --highlight: #303b34;
-      --border: #394052;
-      --accent: #bac8bd;
+    * {
+      box-sizing: border-box;
     }
 
-    * { box-sizing: border-box; }
-
-    html, body {
+    html,
+    body {
       margin: 0;
       padding: 0;
-      background: var(--background);
-      color: var(--text);
-      font-family: var(--font);
     }
 
     body {
-      min-height: 100vh;
-      transition: background .3s, color .3s;
+      background: #ffffff;
+      color: #000000;
+      font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
     }
 
     button {
@@ -63,284 +34,328 @@
       cursor: pointer;
     }
 
-    a { color: var(--link); }
-
-    button:focus-visible, a:focus-visible {
-      outline: 2px solid var(--text);
-      outline-offset: 5px;
+    a {
+      color: #000000;
     }
 
-    ::selection { background: var(--highlight); }
-
-    .skip {
-      position: absolute;
-      top: -80px;
-      left: 16px;
-      padding: 12px;
-      background: var(--background);
-      z-index: 10;
+    button:focus-visible,
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 2px solid #000000;
+      outline-offset: 4px;
     }
 
-    .skip:focus { top: 12px; }
+    ::selection {
+      background: #dddddd;
+      color: #000000;
+    }
 
     .shell {
-      width: 100%;
-      max-width: 1060px;
+      max-width: 850px;
       margin: auto;
-      padding: 38px 50px 28px;
+      padding: 18px 24px 70px;
     }
 
-    .hero {
+    .header {
       text-align: center;
-      padding: 67px 0 36px;
     }
 
     h1 {
-      font-size: clamp(3.2rem, 7vw, 5.1rem);
-      line-height: 1.1;
-      font-weight: 700;
-      letter-spacing: -.055em;
-      margin: 0 0 30px;
+      font-size: 40px;
+      line-height: 1.25;
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin: 0 0 22px;
     }
 
     .nav {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
     }
 
     .nav-btn {
-      position: relative;
       border: 0;
-      border-radius: 7px;
+      border-radius: 0;
+      padding: 6px 10px;
       background: transparent;
-      color: var(--text);
-      padding: 10px 18px;
-      font-size: 14px;
-      transition: background .2s, transform .25s;
+      color: #000000;
+      font-size: 16px;
+      letter-spacing: 0.06em;
     }
 
-    .nav-btn:hover {
-      background: var(--button);
-      transform: translateY(-2px);
-    }
-
+    .nav-btn:hover,
     .nav-btn[aria-selected="true"] {
-      background: var(--button);
-      color: var(--text);
+      background: #eeeeee;
     }
 
-    .nav-btn[aria-selected="true"]::after {
-      content: "";
-      position: absolute;
-      bottom: -7px;
-      left: calc(50% - 2px);
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--text);
+    main {
+      max-width: 600px;
+      margin: 50px auto 0;
     }
 
-    main { margin: 30px 0 68px; }
-
-    .section {
-      max-width: 660px;
-      margin: auto;
-      animation: arrive .35s ease;
-    }
-
-    .section[hidden] { display: none; }
-
-    @keyframes arrive {
-      from { opacity: 0; transform: translateY(7px); }
-      to { opacity: 1; transform: translateY(0); }
+    .section[hidden] {
+      display: none;
     }
 
     h2 {
-      font-size: 28px;
-      line-height: 1.25;
-      font-weight: 700;
-      letter-spacing: -.035em;
-      margin: 0 0 24px;
+      font-size: 24px;
+      line-height: 1.3;
+      font-weight: 500;
+      margin: 0 0 20px;
     }
 
     p {
-      font-size: 17px;
-      line-height: 1.85;
-      margin: 0 0 21px;
+      font-size: 16px;
+      line-height: 1.55;
+      margin: 0 0 20px;
     }
 
-    .greeting {
-      position: relative;
-      display: inline-block;
-      isolation: isolate;
-    }
-
-    .greeting::after {
-      content: "";
-      position: absolute;
-      left: -2px;
-      right: -2px;
-      bottom: 1px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--highlight);
-      z-index: -1;
-    }
-
-    .contact-links {
+    .links {
       display: flex;
-      gap: 26px;
-      margin-top: 30px;
+      flex-direction: column;
+      gap: 18px;
+      margin-top: 36px;
     }
 
-    .text-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+    .links a {
+      width: fit-content;
       font-size: 14px;
       text-decoration: none;
     }
 
-    .text-link span:first-child {
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 3px;
+    .links a:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
     }
 
-    .arrow {
-      display: inline-block;
-      transition: transform .35s cubic-bezier(.22, 1.7, .5, 1);
-    }
-
-    .text-link:hover .arrow {
-      transform: translateX(4px) scaleX(1.25) scaleY(.8);
-    }
-
-    .simple-section { min-height: 315px; }
-
-    .empty-note {
+    .note {
       margin-top: 28px;
-      padding-top: 22px;
-      border-top: 1px solid var(--border);
       font-size: 14px;
     }
 
-    .small-label {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 10px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
+    .project-card {
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+      background: #ffffff;
     }
 
-    footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      border-top: 1px solid var(--border);
-      padding-top: 21px;
-      font-size: 11px;
+    .project-card + .project-card {
+      margin-top: 24px;
     }
 
-    .footer-mark {
-      color: var(--accent);
-      margin-right: 7px;
+    .project-card h3 {
+      font-size: 20px;
+      line-height: 1.4;
+      font-weight: 500;
+      margin: 0 0 7px;
     }
 
-    .footer-tools {
-      display: flex;
-      align-items: center;
-      gap: 16px;
+    .project-card .project-date {
+      color: #666666;
+      font-size: 13px;
+      margin: 0 0 18px;
     }
 
-    .clock { font-variant-numeric: tabular-nums; }
+    .project-details summary {
+      cursor: pointer;
+      font-size: 14px;
+      width: fit-content;
+    }
 
-    .theme-toggle {
+    .project-details summary:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .project-activities {
+      padding-top: 24px;
+    }
+
+    .project-activities h4 {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.5;
+      margin: 24px 0 10px;
+    }
+
+    .project-activities h4:first-child {
+      margin-top: 0;
+    }
+
+    .project-activities p:last-child {
+      margin-bottom: 0;
+    }
+
+    .art-gallery {
       display: grid;
-      place-items: center;
-      width: 30px;
-      height: 30px;
-      padding: 0;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      background: transparent;
+      gap: 28px;
+      margin-top: 24px;
     }
 
-    .theme-toggle svg {
-      width: 19px;
-      height: 19px;
-      transition: transform .6s;
+    .art-gallery figure {
+      margin: 0;
     }
 
-    .theme-toggle:hover svg { transform: rotate(35deg); }
-
-    .moon { display: none; }
-    [data-theme="night"] .sun { display: none; }
-    [data-theme="night"] .moon { display: block; }
-
-    @media (max-width: 800px) {
-      .shell { padding: 28px 28px 24px; }
-      .hero { padding-top: 50px; }
+    .art-gallery img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 560px;
+      margin: 0 auto;
     }
 
-    @media (max-width: 620px) {
-      .shell { padding: 22px 23px; }
-      .hero { padding: 45px 0 24px; }
-      h1 { font-size: 3.2rem; }
-      .nav-btn { padding: 10px 13px; }
-      main { margin-top: 24px; margin-bottom: 42px; }
-      p { font-size: 16px; }
-      footer { font-size: 9px; gap: 12px; }
-      .simple-section { min-height: 250px; }
+    .art-gallery figcaption {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-top: 14px;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation: none !important;
-        transition: none !important;
+    .resume-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .resume-actions a {
+      display: inline-block;
+      padding: 10px 16px;
+      border: 1px solid #cccccc;
+      background: #eeeeee;
+      color: #000000;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .resume-actions a:hover {
+      background: #dddddd;
+    }
+
+    .resume-preview {
+      display: block;
+      width: 100%;
+      height: 720px;
+      border: 1px solid #e5e5e5;
+      background: #ffffff;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      html,
+      body {
+        cursor: var(--globe-cursor), auto;
+      }
+
+      button,
+      a,
+      .project-details summary {
+        cursor: var(--globe-cursor), pointer;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .shell {
+        padding: 25px 22px 50px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .nav {
+        gap: 5px;
+      }
+
+      .nav-btn {
+        font-size: 14px;
+        padding: 6px 8px;
+      }
+
+      main {
+        margin-top: 40px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      .project-card {
+        padding: 20px;
       }
     }
   </style>
 </head>
 
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-
   <div class="shell">
-    <div class="hero">
+    <header class="header">
       <h1>Edeline Ohk</h1>
 
-      <nav class="nav" role="tablist" aria-label="Explore my website">
-        <button type="button" class="nav-btn" id="tab-about"
-          role="tab" data-section="about" aria-controls="about"
-          aria-selected="true">About</button>
+      <nav class="nav" role="tablist" aria-label="Website sections">
+        <button
+          type="button"
+          class="nav-btn"
+          id="tab-about"
+          role="tab"
+          data-section="about"
+          aria-controls="about"
+          aria-selected="true"
+        >About</button>
 
-        <button type="button" class="nav-btn" id="tab-projects"
-          role="tab" data-section="projects" aria-controls="projects"
-          aria-selected="false" tabindex="-1">Projects</button>
+        <button
+          type="button"
+          class="nav-btn"
+          id="tab-projects"
+          role="tab"
+          data-section="projects"
+          aria-controls="projects"
+          aria-selected="false"
+          tabindex="-1"
+        >Projects</button>
 
-        <button type="button" class="nav-btn" id="tab-writing"
-          role="tab" data-section="writing" aria-controls="writing"
-          aria-selected="false" tabindex="-1">Writing</button>
+        <button
+          type="button"
+          class="nav-btn"
+          id="tab-writing"
+          role="tab"
+          data-section="writing"
+          aria-controls="writing"
+          aria-selected="false"
+          tabindex="-1"
+        >Writing</button>
 
-        <button type="button" class="nav-btn" id="tab-resume"
-          role="tab" data-section="resume" aria-controls="resume"
-          aria-selected="false" tabindex="-1">Resume</button>
+        <button
+          type="button"
+          class="nav-btn"
+          id="tab-resume"
+          role="tab"
+          data-section="resume"
+          aria-controls="resume"
+          aria-selected="false"
+          tabindex="-1"
+        >Resume</button>
       </nav>
-    </div>
+    </header>
 
-    <main id="main">
-      <section class="section" id="about" role="tabpanel"
-        aria-labelledby="tab-about" tabindex="0">
-        <h2><span class="greeting">Hi, I’m Edeline!</span></h2>
+    <main>
+      <section
+        class="section"
+        id="about"
+        role="tabpanel"
+        aria-labelledby="tab-about"
+        tabindex="0"
+      >
+        <h2>Hi, I’m Edeline!</h2>
 
         <p>
           I study Politics and International Relations at the University
-          of Melbourne. Alongside university, I’ve worked across the
-          Australian Government in Washington, D.C., at the Australian
-          Embassy, and in Canberra, where I’m from.
+          of Melbourne. Before university, I worked for the Australian
+          Government in Canberra and Washington, D.C., across public
+          administration, trade and economic security.
         </p>
 
         <p>
@@ -352,103 +367,243 @@
           find some of my projects and my resume. Thanks for stopping by!
         </p>
 
-        <div class="contact-links">
-          <a class="text-link"
+        <div class="links">
+          <a
             href="https://www.linkedin.com/in/edeline-ohk111"
-            target="_blank" rel="noopener noreferrer">
-            <span>LinkedIn</span>
-            <span class="arrow" aria-hidden="true">↗</span>
-          </a>
+            target="_blank"
+            rel="noopener noreferrer"
+          >LinkedIn</a>
 
-          <a class="text-link" href="mailto:ohkedeline@gmail.com">
-            <span>Email</span>
-            <span class="arrow" aria-hidden="true">↗</span>
-          </a>
+          <a href="mailto:ohkedeline@gmail.com">Email</a>
         </div>
       </section>
 
-      <section class="section simple-section" id="projects"
-        role="tabpanel" aria-labelledby="tab-projects"
-        tabindex="0" hidden>
+      <section
+        class="section"
+        id="projects"
+        role="tabpanel"
+        aria-labelledby="tab-projects"
+        tabindex="0"
+        hidden
+      >
         <h2>Projects</h2>
-        <p>Here are some projects I've worked on:</p>
-        <p class="empty-note">Project details coming soon.</p>
+
+        <article class="project-card">
+          <h3>Returning to university life</h3>
+          <p class="project-date">2027 – Ongoing</p>
+
+          <p>
+            Returning to university after full-time work has been an
+            adjustment. I had forgotten, among other things, that 10AM
+            can constitute an early start! Still, university has left me
+            with the luxury of a little more time, which I have been
+            filling with various projects, questionable commitments,
+            and the occasional attempt at becoming a well-rounded person.
+            Here is what I have been getting up to.
+          </p>
+
+          <details class="project-details">
+            <summary>Read more</summary>
+
+            <div class="project-activities">
+              <h4>
+                Marketing Director, University of Melbourne Matcha Club
+              </h4>
+
+              <p>
+                The club’s Instagram has grown from zero to more than
+                1,000 followers, alongside a community of over 300 members.
+                What drew me in, though, was its hilariously unserious
+                premise of bringing people together over a drink they love.
+                An entire club whose entire ideological programme amounts
+                to having a nice free drink felt like a great counterweight
+                to a politics degree (satirical).
+              </p>
+
+              <h4>
+                Events Officer, Young Australians in International Affairs
+                (YAIYA)
+              </h4>
+
+              <p>
+                I have also taken on an Events Officer role. Australia’s
+                voice matters, and I want to understand more clearly what
+                we ought to do with it. The role gives me the chance to
+                bring together people thinking about the same questions,
+                while surrounding myself with peers who care just as much
+                about international affairs and what Australia can
+                contribute to them.
+              </p>
+
+              <h4>Neighbourhood dog walking</h4>
+
+              <p>
+                Solomon, a Chihuahua–Jack Russell mix, and Maggie, an
+                Australian Cattle Dog mix, keep me company on our
+                twice-weekly, hour-long walks. They bring affection,
+                enthusiasm and a rigorous peer-review process to every
+                tree. Their priorities are admirably clear, and their
+                approach to networking considerably more direct than mine.
+              </p>
+
+              <h4>Volunteer English Tutor, Embrace Education</h4>
+
+              <p>
+                With a little more time on my hands, I also wanted to
+                use some of it to give back to the community around me.
+              </p>
+            </div>
+          </details>
+        </article>
+
+        <article class="project-card">
+          <h3>Art portfolio</h3>
+          <p class="project-date">2021 – onwards</p>
+
+          <p>
+            A digital showroom of curiosities for my visual projects,
+            from paintings and sketches to sculptures and photographs.
+            Entirely for fun.
+          </p>
+
+          <details class="project-details">
+            <summary>View artworks</summary>
+
+            <div class="art-gallery">
+              <figure>
+                <a
+                  href="sanso.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open the chopstick sculpture image"
+                >
+                  <img
+                    src="sanso.png"
+                    loading="lazy"
+                    alt="Three views of a rounded sculpture made from densely arranged chopsticks."
+                  >
+                </a>
+
+                <figcaption>
+                  Inspired by Rosalie Gascoigne, I used chopsticks to
+                  evoke the form of a Korean ancestral gravesite, or
+                  <em>sanso</em> (산소).
+                </figcaption>
+              </figure>
+
+              <figure>
+                <a
+                  href="caravaggio-fillide.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open the painting of Caravaggio and Fillide Melandroni"
+                >
+                  <img
+                    src="caravaggio-fillide.png"
+                    loading="lazy"
+                    alt="Painting of two figures together against a dark background, with one holding a white flower."
+                  >
+                </a>
+
+                <figcaption>
+                  Painted Caravaggio alongside Fillide Melandroni,
+                  one of his favourite muses.
+                </figcaption>
+              </figure>
+
+              <figure>
+                <a
+                  href="politician-portrait.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open the portrait in the style of Egon Schiele"
+                >
+                  <img
+                    src="politician-portrait.png"
+                    loading="lazy"
+                    alt="Tall painted portrait of a bespectacled figure with an exposed torso and a red lower garment."
+                  >
+                </a>
+
+                <figcaption>
+                  Large portraiture of a politician (produced for class)
+                  in the style of Egon Schiele.
+                </figcaption>
+              </figure>
+            </div>
+          </details>
+        </article>
       </section>
 
-      <section class="section simple-section" id="writing"
-        role="tabpanel" aria-labelledby="tab-writing"
-        tabindex="0" hidden>
+      <section
+        class="section"
+        id="writing"
+        role="tabpanel"
+        aria-labelledby="tab-writing"
+        tabindex="0"
+        hidden
+      >
         <h2>Writing</h2>
-        <p>I occasionally write about politics, history and international affairs.</p>
-        <p class="empty-note">Writing will be added here soon.</p>
+
+        <p>
+          I occasionally write about politics, history and
+          international affairs.
+        </p>
+
+        <p class="note">Writing will be added here soon.</p>
       </section>
 
-      <section class="section simple-section" id="resume"
-        role="tabpanel" aria-labelledby="tab-resume"
-        tabindex="0" hidden>
+      <section
+        class="section"
+        id="resume"
+        role="tabpanel"
+        aria-labelledby="tab-resume"
+        tabindex="0"
+        hidden
+      >
         <h2>Resume</h2>
+
         <p>
           My experience spans government, international affairs,
           research and public administration.
         </p>
-        <p>
-          <span class="small-label">Education</span>
-          University of Melbourne
-        </p>
-        <p class="empty-note">
-          For a copy of my resume, please get in touch.
-        </p>
-        <a class="text-link"
-          href="mailto:ohkedeline@gmail.com?subject=Resume%20enquiry">
-          <span>Request my resume</span>
-          <span class="arrow" aria-hidden="true">↗</span>
-        </a>
+
+        <div class="resume-actions">
+          <a
+            href="resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >View resume</a>
+
+          <a
+            href="resume.pdf"
+            download="Edeline-Ohk-Resume.pdf"
+          >Download resume</a>
+        </div>
+
+        <iframe
+          class="resume-preview"
+          src="resume.pdf#view=FitH"
+          title="Edeline Ohk’s resume"
+          loading="lazy"
+        ></iframe>
       </section>
     </main>
-
-    <footer>
-      <span>
-        <span class="footer-mark" aria-hidden="true">✳</span>
-        Edeline Ohk
-      </span>
-
-      <div class="footer-tools">
-        <span>
-          Melbourne
-          <time class="clock" aria-label="Current time in Melbourne"></time>
-        </span>
-
-        <button class="theme-toggle" type="button"
-          aria-label="Switch to night mode">
-          <svg class="sun" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-            <circle cx="12" cy="12" r="4"/>
-            <path d="M12 1v3m0 16v3M1 12h3m16 0h3M4.2 4.2l2.1 2.1m11.4 11.4l2.1 2.1M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/>
-          </svg>
-
-          <svg class="moon" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-            <path d="M21 14A9 9 0 0 1 10 3a9 9 0 1 0 11 11Z"/>
-            <path d="M18 2v6m-3-3h6"/>
-          </svg>
-        </button>
-      </div>
-    </footer>
   </div>
 
   <script>
     const tabs = [...document.querySelectorAll('[role="tab"]')];
     const panels = [...document.querySelectorAll('[role="tabpanel"]')];
 
-    function selectSection(id, updateURL = true) {
+    function showSection(id, updateURL = true) {
       if (!tabs.some(tab => tab.dataset.section === id)) {
         id = "about";
       }
 
       tabs.forEach(tab => {
-        const active = tab.dataset.section === id;
-        tab.setAttribute("aria-selected", String(active));
-        tab.tabIndex = active ? 0 : -1;
+        const selected = tab.dataset.section === id;
+        tab.setAttribute("aria-selected", String(selected));
+        tab.tabIndex = selected ? 0 : -1;
       });
 
       panels.forEach(panel => {
@@ -462,7 +617,7 @@
 
     tabs.forEach((tab, index) => {
       tab.addEventListener("click", () => {
-        selectSection(tab.dataset.section);
+        showSection(tab.dataset.section);
       });
 
       tab.addEventListener("keydown", event => {
@@ -482,62 +637,15 @@
 
         event.preventDefault();
         tabs[next].focus();
-        selectSection(tabs[next].dataset.section);
+        showSection(tabs[next].dataset.section);
       });
     });
 
     window.addEventListener("hashchange", () => {
-      selectSection(location.hash.slice(1), false);
+      showSection(location.hash.slice(1), false);
     });
 
-    selectSection(location.hash.slice(1), false);
-
-    const themeButton = document.querySelector(".theme-toggle");
-
-    function updateThemeLabel() {
-      const night = document.documentElement.dataset.theme === "night";
-      themeButton.setAttribute(
-        "aria-label",
-        night ? "Switch to day mode" : "Switch to night mode"
-      );
-    }
-
-    updateThemeLabel();
-
-    themeButton.addEventListener("click", () => {
-      const theme =
-        document.documentElement.dataset.theme === "night"
-          ? "day"
-          : "night";
-
-      document.documentElement.dataset.theme = theme;
-
-      document.querySelector('meta[name="theme-color"]').content =
-        theme === "night" ? "#1c2230" : "#f4f5f3";
-
-      try {
-        localStorage.setItem("edeline-theme", theme);
-      } catch {}
-
-      updateThemeLabel();
-    });
-
-    function updateClock() {
-      const now = new Date();
-      const clock = document.querySelector(".clock");
-
-      clock.textContent = new Intl.DateTimeFormat("en-AU", {
-        timeZone: "Australia/Melbourne",
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: false
-      }).format(now);
-
-      clock.dateTime = now.toISOString();
-    }
-
-    updateClock();
-    setInterval(updateClock, 60000);
+    showSection(location.hash.slice(1), false);
   </script>
 </body>
 </html>

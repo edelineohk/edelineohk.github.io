@@ -1,7 +1,3 @@
----
-layout: null
-permalink: /
----
 
 <html lang="en">
 <head>

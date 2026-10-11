@@ -12,8 +12,8 @@
       }
 
       html, body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
-        background: #f5f5f5;
+        font-family: -apple-system, BlinkMacSystemFont, "JetBrains Mono", "Inter", JetBrains Mono;
+        background: #0A0A0A;
         color: #1a1a1a;
       }
 

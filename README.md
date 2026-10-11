@@ -38,9 +38,7 @@
       color: #000000;
     }
 
-    button:focus-visible,
-    a:focus-visible,
-    summary:focus-visible {
+    a:focus-visible {
       outline: 2px solid #000000;
       outline-offset: 4px;
     }
@@ -65,29 +63,14 @@
       line-height: 1.25;
       font-weight: 500;
       letter-spacing: 1px;
-      margin: 0 0 22px;
+      margin: 0 0 24px;
     }
 
     .nav {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .nav-btn {
-      border: 0;
-      border-radius: 0;
-      padding: 6px 10px;
-      background: transparent;
-      color: #000000;
-      font-size: 16px;
-      letter-spacing: 0.06em;
-    }
-
-    .nav-btn:hover,
-    .nav-btn[aria-selected="true"] {
-      background: #eeeeee;
+      gap: 16px;
     }
 
     main {
@@ -114,20 +97,108 @@
 
     .links {
       display: flex;
-      flex-direction: column;
-      gap: 18px;
+      flex-wrap: wrap;
+      gap: 16px;
       margin-top: 36px;
     }
 
-    .links a {
-      width: fit-content;
-      font-size: 14px;
-      text-decoration: none;
+    .resume-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 24px 0;
     }
 
-    .links a:hover {
-      text-decoration: underline;
-      text-underline-offset: 4px;
+    /* Shared button appearance */
+    .nav-btn,
+    .links a,
+    .resume-actions a,
+    .project-details summary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      min-height: 44px;
+      padding: 10px 16px;
+      border: 3px solid #000000;
+      border-radius: 4px;
+      background: #ffffff;
+      color: #000000;
+      box-shadow: 4px 4px 0 #000000;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: 0;
+      text-decoration: none;
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        background-color 180ms ease;
+    }
+
+    .nav-btn {
+      min-width: 96px;
+    }
+
+    /* Expandable project buttons */
+    .project-details summary {
+      list-style: none;
+      cursor: pointer;
+    }
+
+    .project-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .project-details summary::after {
+      content: "+";
+      margin-left: 14px;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .project-details[open] > summary::after {
+      content: "−";
+    }
+
+    /* Selected tab and open project */
+    .nav-btn[aria-selected="true"],
+    .project-details[open] > summary {
+      background: #eeeeee;
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 #000000;
+    }
+
+    /* Hover: move into the shadow */
+    @media (hover: hover) {
+      .nav-btn:hover,
+      .links a:hover,
+      .resume-actions a:hover,
+      .project-details summary:hover {
+        background: #eeeeee;
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0 #000000;
+      }
+    }
+
+    /* Click: fully press the button */
+    .nav-btn:active,
+    .links a:active,
+    .resume-actions a:active,
+    .project-details summary:active {
+      transform: translate(4px, 4px);
+      box-shadow: 0 0 0 #000000;
+      background: #dddddd;
+    }
+
+    /* Keyboard navigation */
+    .nav-btn:focus-visible,
+    .links a:focus-visible,
+    .resume-actions a:focus-visible,
+    .project-details summary:focus-visible {
+      outline: 2px dashed #000000;
+      outline-offset: 6px;
     }
 
     .project-card {
@@ -153,17 +224,6 @@
       color: #666666;
       font-size: 13px;
       margin: 0 0 18px;
-    }
-
-    .project-details summary {
-      cursor: pointer;
-      font-size: 14px;
-      width: fit-content;
-    }
-
-    .project-details summary:hover {
-      text-decoration: underline;
-      text-underline-offset: 4px;
     }
 
     .project-activities {
@@ -210,27 +270,6 @@
       margin-top: 14px;
     }
 
-    .resume-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 24px 0;
-    }
-
-    .resume-actions a {
-      display: inline-block;
-      padding: 10px 16px;
-      border: 1px solid #cccccc;
-      background: #eeeeee;
-      color: #000000;
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    .resume-actions a:hover {
-      background: #dddddd;
-    }
-
     .resume-preview {
       display: block;
       width: 100%;
@@ -239,6 +278,7 @@
       background: #ffffff;
     }
 
+    /* Globe cursor */
     @media (hover: hover) and (pointer: fine) {
       html,
       body {
@@ -252,6 +292,17 @@
       }
     }
 
+    /* Respect reduced-motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      .nav-btn,
+      .links a,
+      .resume-actions a,
+      .project-details summary {
+        transition: none;
+        transform: none !important;
+      }
+    }
+
     @media (max-width: 600px) {
       .shell {
         padding: 25px 22px 50px;
@@ -262,12 +313,12 @@
       }
 
       .nav {
-        gap: 5px;
+        gap: 12px;
       }
 
       .nav-btn {
-        font-size: 14px;
-        padding: 6px 8px;
+        min-width: 86px;
+        padding: 9px 12px;
       }
 
       main {

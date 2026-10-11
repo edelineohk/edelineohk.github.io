@@ -484,8 +484,8 @@
                   <h2>Hi, I'm Laura!</h2>
 
                   <p>
-                    I work on trust and safety for Google Search AI in New York, where I'm from.
-                    I studied computer science at Harvard (graduated 2020). When I'm not at work,
+                   I'm currently completing my degree at the University of Melbourne.
+                    I study Politics and International Affairs. When I'm not doing school work,
                     I enjoy additional creative labor — here you'll find my projects and my resume.
                     Thanks for stopping by!
                   </p>

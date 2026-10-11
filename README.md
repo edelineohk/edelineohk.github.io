@@ -13,7 +13,7 @@
 
       html, body {
         font-family: -apple-system, BlinkMacSystemFont, "JetBrains Mono", "Inter", JetBrains Mono;
-        background: #0A0A0A;
+        background: #FDFBDQ;
         color: #1a1a1a;
       }
 

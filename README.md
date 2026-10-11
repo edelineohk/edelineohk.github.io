@@ -352,7 +352,7 @@
         <h2>Hi, I’m Edeline!</h2>
 
         <p>
-          I study Politics and International Relations at the University
+          I study Politics and International Affairs at the University
           of Melbourne. Before university, I worked for the Australian
           Government in Canberra and Washington, D.C., across public
           administration, trade and economic security.

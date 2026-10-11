@@ -121,11 +121,13 @@
     }
 
     .nav-btn[aria-selected="true"] {
-      background: var(--wash);
-      color: var(--blue);
-    }
+  background: #e5e7eb;
+  color: #656c74;
+}
 
-    .nav-btn[aria-selected="true"]::after {
+.nav-btn[aria-selected="true"]::after {
+  background: #656c74;
+}
       content: "";
       position: absolute;
       bottom: -7px;

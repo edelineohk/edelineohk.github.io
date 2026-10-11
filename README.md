@@ -177,11 +177,10 @@
         <div class="section active" id="about">
           <h2>About</h2>
           <p>
-            Hi, I'm Edeline! I study Politics and International Relations at the University of Melbourne. Alongside university, I’ve worked across the Australian Government in Canberra and Washington, D.C., with experience in public administration, trade and economic security.
+            Hi, I’m Edeline! I study Politics and International Relations at the University of Melbourne. Alongside university, I’ve worked across the Australian Government in Washington, D.C., at the Australian Embassy, and in Canberra, where I’m from.
           </p>
           <p>
-I’m curious about how politics, institutions and ideas shape public life, especially where different fields and perspectives overlap. I like asking questions, learning quickly, and following an interesting idea further than I probably need to.            
-Here you’ll find some of my work, projects and experience. Thanks for stopping by!
+I’m especially interested in how Australia navigates the international questions shaping our time, from supply security in a new technological and climate era to migration, borders and sovereignty. Currently, when I’m not doing school work, I enjoy some creative labour and local history. Here you’ll find some of my projects and my resume. Thanks for stopping by!
           </p>
           <div class="links">
             <a href="https://github.com" target="_blank">GitHub</a>

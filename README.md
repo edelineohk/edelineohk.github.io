@@ -1,4 +1,8 @@
-
+  html, body {
+    font-family: -apple-system, BlinkMacSystemFont, "JetBrains Mono", "Inter", JetBrains Mono;
+    background: #FDFBDQ;
+    color: #1a1a1a;
+  }
     <title>Edeline Ohk</title>
     <style>
       * {

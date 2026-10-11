@@ -130,11 +130,6 @@
       text-underline-offset: 4px;
     }
 
-    .note {
-      margin-top: 28px;
-      font-size: 14px;
-    }
-
     .project-card {
       border: 1px solid #e5e5e5;
       border-radius: 8px;
@@ -316,17 +311,6 @@
           aria-selected="false"
           tabindex="-1"
         >Projects</button>
-
-        <button
-          type="button"
-          class="nav-btn"
-          id="tab-writing"
-          role="tab"
-          data-section="writing"
-          aria-controls="writing"
-          aria-selected="false"
-          tabindex="-1"
-        >Writing</button>
 
         <button
           type="button"
@@ -537,24 +521,6 @@
 
       <section
         class="section"
-        id="writing"
-        role="tabpanel"
-        aria-labelledby="tab-writing"
-        tabindex="0"
-        hidden
-      >
-        <h2>Writing</h2>
-
-        <p>
-          I occasionally write about politics, history and
-          international affairs.
-        </p>
-
-        <p class="note">Writing will be added here soon.</p>
-      </section>
-
-      <section
-        class="section"
         id="resume"
         role="tabpanel"
         aria-labelledby="tab-resume"
@@ -570,20 +536,20 @@
 
         <div class="resume-actions">
           <a
-            href="resume.pdf"
+            href="resume%20(3).pdf"
             target="_blank"
             rel="noopener noreferrer"
           >View resume</a>
 
           <a
-            href="resume.pdf"
+            href="resume%20(3).pdf"
             download="Edeline-Ohk-Resume.pdf"
           >Download resume</a>
         </div>
 
         <iframe
           class="resume-preview"
-          src="resume.pdf#view=FitH"
+          src="resume%20(3).pdf#view=FitH"
           title="Edeline Ohk’s resume"
           loading="lazy"
         ></iframe>

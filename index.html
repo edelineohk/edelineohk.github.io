@@ -35,7 +35,8 @@
     }
 
     button:focus-visible,
-    a:focus-visible {
+    a:focus-visible,
+    summary:focus-visible {
       outline: 2px solid #000000;
       outline-offset: 4px;
     }
@@ -130,6 +131,57 @@
       font-size: 14px;
     }
 
+    .project-card {
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+      background: #ffffff;
+    }
+
+    .project-card h3 {
+      font-size: 20px;
+      line-height: 1.4;
+      font-weight: 500;
+      margin: 0 0 7px;
+    }
+
+    .project-card .project-date {
+      color: #666666;
+      font-size: 13px;
+      margin: 0 0 18px;
+    }
+
+    .project-details summary {
+      cursor: pointer;
+      font-size: 14px;
+      width: fit-content;
+    }
+
+    .project-details summary:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .project-activities {
+      padding-top: 24px;
+    }
+
+    .project-activities h4 {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.5;
+      margin: 24px 0 10px;
+    }
+
+    .project-activities h4:first-child {
+      margin-top: 0;
+    }
+
+    .project-activities p:last-child {
+      margin-bottom: 0;
+    }
+
     @media (max-width: 600px) {
       .shell {
         padding: 25px 22px 50px;
@@ -154,6 +206,10 @@
 
       h2 {
         font-size: 22px;
+      }
+
+      .project-card {
+        padding: 20px;
       }
     }
   </style>
@@ -222,18 +278,16 @@
 
         <p>
           I study Politics and International Relations at the University
-          of Melbourne. Alongside university, I’ve worked across the
-          Australian Government in Washington, D.C., at the Australian
-          Embassy, and in Canberra, where I’m from.
+          of Melbourne. Before university, I worked for the Australian
+          Government in Canberra and Washington, D.C., across public
+          administration, trade and economic security.
         </p>
 
         <p>
-          I’m especially interested in how Australia navigates the
-          international questions shaping our time, from supply security
-          in a new technological and climate era to migration, borders
-          and sovereignty. Currently, when I’m not doing school work,
-          I enjoy some creative labour and local history. Here you’ll
-          find some of my projects and my resume. Thanks for stopping by!
+          I’m interested in politics, diplomacy, borders, critical minerals,
+          and generally anything that gives me an excuse to learn about
+          how the world works. Here you’ll find some of my projects and
+          experience. Thanks for stopping by!
         </p>
 
         <div class="links">
@@ -256,8 +310,74 @@
         hidden
       >
         <h2>Projects</h2>
-        <p>Here are some projects I've worked on:</p>
-        <p class="note">Project details coming soon.</p>
+
+        <article class="project-card">
+          <h3>Returning to university life</h3>
+          <p class="project-date">2027 – Ongoing</p>
+
+          <p>
+            Returning to university after full-time work has been an
+            adjustment. I had forgotten, among other things, that 10AM
+            can constitute an early start! Still, university has left me
+            with the luxury of a little more time, which I have been
+            filling with various projects, questionable commitments,
+            and the occasional attempt at becoming a well-rounded person.
+            Here is what I have been getting up to.
+          </p>
+
+          <details class="project-details">
+            <summary>Read more</summary>
+
+            <div class="project-activities">
+              <h4>
+                Marketing Director, University of Melbourne Matcha Club
+              </h4>
+
+              <p>
+                The club’s Instagram has grown from zero to more than
+                1,000 followers, alongside a community of over 300 members.
+                What drew me in, though, was its hilariously unserious
+                premise of bringing people together over a drink they love.
+                An entire club whose entire ideological programme amounts
+                to having a nice free drink felt like a great counterweight
+                to a politics degree (satirical).
+              </p>
+
+              <h4>
+                Events Officer, Young Australians in International Affairs
+                (YAIYA)
+              </h4>
+
+              <p>
+                I have also taken on an Events Officer role. Australia’s
+                voice matters, and I want to understand more clearly what
+                we ought to do with it. The role gives me the chance to
+                bring together people thinking about the same questions,
+                while surrounding myself with peers who care just as much
+                about international affairs and what Australia can
+                contribute to them.
+              </p>
+
+              <h4>Neighbourhood dog walking</h4>
+
+              <p>
+                Solomon, a Chihuahua–Jack Russell mix, and Maggie, an
+                Australian Cattle Dog mix, keep me company on our
+                twice-weekly, hour-long walks. They bring affection,
+                enthusiasm and a rigorous peer-review process to every
+                tree. Their priorities are admirably clear, and their
+                approach to networking considerably more direct than mine.
+              </p>
+
+              <h4>Volunteer English Tutor, Embrace Education</h4>
+
+              <p>
+                With a little more time on my hands, I also wanted to
+                use some of it to give back to the community around me.
+              </p>
+            </div>
+          </details>
+        </article>
       </section>
 
       <section
@@ -269,10 +389,12 @@
         hidden
       >
         <h2>Writing</h2>
+
         <p>
           I occasionally write about politics, history and
           international affairs.
         </p>
+
         <p class="note">Writing will be added here soon.</p>
       </section>
 

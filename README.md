@@ -5,501 +5,255 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edeline Ohk</title>
     <style>
-      :root {
-        --bg: #efefef;
-        --browser-bg: #dadada;
-        --tab-bg: #f2f2f2;
-        --chrome: #e8e8e8;
-        --line: #d0d0d0;
-        --text: #1a1a1a;
-        --muted: #4a4a4a;
-        --blue: #bfe1f4;
-        --tab-text: #5b5b5b;
-      }
-
       * {
         box-sizing: border-box;
+        margin: 0;
+        padding: 0;
       }
 
       html, body {
-        margin: 0;
-        padding: 0;
-        background: var(--bg);
-        color: var(--text);
-        font-family: "Georgia", "Times New Roman", serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+        background: #f5f5f5;
+        color: #1a1a1a;
       }
 
       body {
         min-height: 100vh;
         display: flex;
-        align-items: stretch;
         justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
       }
 
-      .browser {
+      .container {
         width: 100%;
-        min-height: 100vh;
-        background: var(--bg);
-        display: flex;
-        flex-direction: column;
+        max-width: 900px;
       }
 
-      .topbar {
-        height: 58px;
-        background: var(--chrome);
-        border-bottom: 1px solid var(--line);
-        display: flex;
-        align-items: center;
-        padding: 0 18px;
-        gap: 14px;
-      }
-
-      .browser-actions {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        width: 125px;
-      }
-
-      .nav-arrow {
-        width: 12px;
-        height: 12px;
-        border: solid #5b5b5b;
-        border-width: 0 2px 2px 0;
-        transform: rotate(135deg);
-        opacity: 0.8;
-      }
-
-      .nav-arrow.right {
-        transform: rotate(-45deg);
-      }
-
-      .nav-arrow.up {
-        transform: rotate(225deg);
-      }
-
-      .refresh {
-        width: 18px;
-        height: 18px;
-        border: 2px solid #4f4f4f;
-        border-right-color: transparent;
-        border-radius: 50%;
-        position: relative;
-        opacity: 0.8;
-      }
-
-      .refresh::after {
-        content: "";
-        position: absolute;
-        right: -5px;
-        top: -2px;
-        width: 0;
-        height: 0;
-        border-left: 6px solid #4f4f4f;
-        border-top: 4px solid transparent;
-        border-bottom: 4px solid transparent;
-        transform: rotate(35deg);
-      }
-
-      .addressbar {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-      }
-
-      .bar {
-        width: min(100%, 900px);
-        height: 34px;
-        background: rgba(255,255,255,0.5);
-        border: 1px solid rgba(0,0,0,0.08);
-        border-radius: 18px;
-        display: flex;
-        align-items: center;
-        padding: 0 14px;
-        gap: 10px;
-        color: #202020;
-        font-size: 15px;
-        font-family: Arial, sans-serif;
-      }
-
-      .lock {
-        width: 12px;
-        height: 12px;
-        border: 2px solid #555;
-        border-radius: 2px;
-        position: relative;
-        opacity: 0.7;
-      }
-
-      .lock::before {
-        content: "";
-        position: absolute;
-        width: 7px;
-        height: 7px;
-        border: 2px solid #555;
-        border-bottom: none;
-        border-radius: 8px 8px 0 0;
-        left: 1px;
-        top: -8px;
-      }
-
-      .url {
-        font-family: Arial, sans-serif;
-      }
-
-      .toolbar-icons {
-        width: 150px;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 14px;
-      }
-
-      .icon {
-        width: 14px;
-        height: 14px;
-        border-radius: 3px;
-        background: #5a5a5a;
-        opacity: 0.8;
-      }
-
-      .profile {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: #5a5a5a;
-      }
-
-      .tab-row {
-        height: 52px;
-        background: var(--chrome);
-        border-bottom: 1px solid var(--line);
-        display: flex;
-        align-items: flex-end;
-        padding: 0 18px 0 12px;
-        gap: 8px;
-      }
-
-      .tab {
-        height: 40px;
-        min-width: 126px;
-        border: 1px solid var(--line);
-        border-bottom: none;
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
-        background: var(--tab-bg);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        color: var(--tab-text);
-        font-family: Arial, sans-serif;
-        font-size: 15px;
-        padding: 0 14px;
-      }
-
-      .tab.active {
-        background: white;
-        border-bottom: 1px solid white;
-      }
-
-      .gmail-icon {
-        width: 18px;
-        height: 14px;
-        background: #ea4335;
-        border-radius: 3px;
-        position: relative;
-      }
-
-      .gmail-icon::before,
-      .gmail-icon::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: transparent;
-      }
-
-      .gmail-icon::before {
-        border-left: 10px solid white;
-        border-top: 6px solid transparent;
-        border-bottom: 6px solid transparent;
-        left: 4px;
-        top: 1px;
-      }
-
-      .gmail-icon::after {
-        border-right: 10px solid white;
-        border-top: 6px solid transparent;
-        border-bottom: 6px solid transparent;
-        right: 4px;
-        top: 1px;
-      }
-
-      .page {
-        flex: 1;
-        background: #f5f5f5;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        padding-top: 38px;
-      }
-
-      .content {
-        width: min(1100px, calc(100% - 80px));
-        display: flex;
-        justify-content: center;
-      }
-
-      .inner {
-        width: 100%;
-        max-width: 1030px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      .header {
+        text-align: center;
+        margin-bottom: 50px;
       }
 
       .name {
-        font-size: clamp(3.1rem, 5.5vw, 6rem);
+        font-size: clamp(3.5rem, 6vw, 5.5rem);
+        font-weight: 600;
+        letter-spacing: -0.05em;
         line-height: 1;
-        letter-spacing: -0.06em;
-        font-weight: 400;
-        margin-top: 10px;
-        margin-bottom: 26px;
+        margin-bottom: 30px;
       }
 
-      .nav-tabs {
+      .nav {
         display: flex;
-        gap: 8px;
-        margin-bottom: 38px;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 50px;
       }
 
-      .nav-tab {
-        height: 38px;
-        min-width: 110px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0 20px;
-        font-family: Arial, sans-serif;
-        font-size: 16px;
-        color: #2f2f2f;
+      .nav-btn {
+        padding: 10px 20px;
         background: transparent;
-        border: 1px solid transparent;
-      }
-
-      .nav-tab.active {
-        background: var(--blue);
-        border-color: rgba(90, 164, 214, 0.15);
-      }
-
-      .bio-wrap {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-top: 10px;
-      }
-
-      .bio-grid {
-        width: min(100%, 920px);
-        display: grid;
-        grid-template-columns: 360px 1fr;
-        gap: 60px;
-        align-items: start;
-      }
-
-      .photo-card {
-        width: 100%;
-        max-width: 330px;
-        height: 310px;
-        margin-left: 48px;
+        border: 1px solid #ddd;
         border-radius: 4px;
-        overflow: hidden;
-        box-shadow: 0 0 0 1px rgba(0,0,0,0.04);
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        color: #1a1a1a;
+        font-family: inherit;
       }
 
-      .photo-card img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+      .nav-btn.active {
+        background: #7bb8f0;
+        border-color: #7bb8f0;
+        color: white;
+      }
+
+      .nav-btn:hover {
+        border-color: #999;
+      }
+
+      .content {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .section {
+        display: none;
+      }
+
+      .section.active {
         display: block;
+        animation: fadeIn 0.3s ease;
       }
 
-      .bio-copy {
-        padding-top: 4px;
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       h2 {
-        font-size: clamp(2.2rem, 3vw, 3rem);
-        font-weight: 400;
-        margin: 0 0 24px 0;
-        letter-spacing: -0.04em;
+        font-size: 2rem;
+        margin-bottom: 20px;
+        font-weight: 500;
       }
 
       p {
-        margin: 0;
-        font-size: clamp(1.1rem, 1.5vw, 1.35rem);
-        line-height: 1.55;
-        color: #2b2b2b;
-        max-width: 720px;
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 16px;
+        color: #333;
       }
 
       .links {
-        margin-top: 36px;
+        margin-top: 30px;
         display: flex;
         flex-direction: column;
-        gap: 0;
+        gap: 10px;
       }
 
-      .links a {
-        color: #1d1d1d;
+      a {
+        color: #1a1a1a;
         text-decoration: none;
-        font-size: clamp(1.15rem, 1.5vw, 1.45rem);
-        margin: 0 0 8px 0;
+        font-size: 1.1rem;
+        padding-bottom: 2px;
+        border-bottom: 1px solid transparent;
         width: fit-content;
-        position: relative;
+        transition: border-color 0.2s ease;
       }
 
-      .links a::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -2px;
-        width: 100%;
-        height: 1px;
-        background: rgba(0,0,0,0.35);
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.18s ease;
+      a:hover {
+        border-bottom-color: #1a1a1a;
       }
 
-      .links a:hover::after {
-        transform: scaleX(1);
-      }
-
-      @media (max-width: 900px) {
-        .bio-grid {
-          grid-template-columns: 1fr;
-          gap: 26px;
-          justify-items: center;
-        }
-
-        .photo-card {
-          margin-left: 0;
-        }
-
-        .bio-copy {
-          text-align: left;
-          width: 100%;
-        }
-
-        .page {
-          padding-top: 24px;
-        }
-      }
-
-      @media (max-width: 620px) {
-        .tab-row {
-          overflow-x: auto;
-          padding-bottom: 0;
-        }
-
-        .tab {
-          min-width: 110px;
-        }
-
-        .content {
-          width: calc(100% - 30px);
+      @media (max-width: 600px) {
+        body {
+          padding: 30px 20px;
         }
 
         .name {
-          margin-bottom: 18px;
+          font-size: 2.8rem;
         }
 
-        .nav-tabs {
-          flex-wrap: wrap;
-          justify-content: center;
+        .nav {
+          gap: 8px;
         }
 
-        .bar {
-          font-size: 13px;
+        .nav-btn {
+          padding: 8px 16px;
+          font-size: 15px;
+        }
+
+        h2 {
+          font-size: 1.6rem;
+        }
+
+        p {
+          font-size: 1rem;
         }
       }
     </style>
   </head>
   <body>
-    <div class="browser">
-      <div class="topbar">
-        <div class="browser-actions">
-          <div class="nav-arrow"></div>
-          <div class="nav-arrow right"></div>
-          <div class="refresh"></div>
-        </div>
+    <div class="container">
+      <div class="header">
+        <div class="name">Edeline Ohk</div>
 
-        <div class="addressbar">
-          <div class="bar">
-            <div class="lock"></div>
-            <div class="url">laurachapman.github.io</div>
+        <div class="nav">
+          <button class="nav-btn active" data-section="about">About</button>
+          <button class="nav-btn" data-section="projects">Projects</button>
+          <button class="nav-btn" data-section="writing">Writing</button>
+          <button class="nav-btn" data-section="resume">Resume</button>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="section active" id="about">
+          <h2>About</h2>
+          <p>
+            Hi, I'm Edeline. I'm passionate about building things and solving interesting problems.
+          </p>
+          <p>
+            When I'm not coding, you'll find me exploring new ideas, contributing to open source,
+            or working on personal projects that excite me.
+          </p>
+          <div class="links">
+            <a href="https://github.com" target="_blank">GitHub</a>
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+            <a href="mailto:hello@edeline.dev">Email</a>
           </div>
         </div>
 
-        <div class="toolbar-icons">
-          <div class="icon"></div>
-          <div class="profile"></div>
-          <div class="icon"></div>
+        <div class="section" id="projects">
+          <h2>Projects</h2>
+          <p>
+            Here are some projects I've worked on:
+          </p>
+          <ul style="margin-left: 20px; margin-bottom: 20px;">
+            <li style="margin-bottom: 10px;">
+              <strong>Project One</strong> - A cool web application
+            </li>
+            <li style="margin-bottom: 10px;">
+              <strong>Project Two</strong> - An interesting tool or library
+            </li>
+            <li style="margin-bottom: 10px;">
+              <strong>Project Three</strong> - Something creative
+            </li>
+          </ul>
         </div>
-      </div>
 
-      <div class="tab-row">
-        <div class="tab">
-          <div class="gmail-icon"></div>
-          <span>Gmail</span>
+        <div class="section" id="writing">
+          <h2>Writing</h2>
+          <p>
+            I occasionally write about tech, design, and building. Check out my latest posts:
+          </p>
+          <div class="links">
+            <a href="#">Blog Post One</a>
+            <a href="#">Blog Post Two</a>
+            <a href="#">Blog Post Three</a>
+          </div>
         </div>
-        <div class="tab active">
-          <div class="gmail-icon"></div>
-          <span>Gmail</span>
-        </div>
-      </div>
 
-      <div class="page">
-        <div class="content">
-          <div class="inner">
-            <div class="name">Laura Chapman</div>
-
-            <div class="nav-tabs">
-              <div class="nav-tab active">About</div>
-              <div class="nav-tab">Projects</div>
-              <div class="nav-tab">Resume</div>
-            </div>
-
-            <div class="bio-wrap">
-              <div class="bio-grid">
-                <div class="photo-card">
-                  <img
-                    src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80"
-                    alt="Laura portrait"
-                  />
-                </div>
-
-                <div class="bio-copy">
-                  <h2>Hi, I'm Laura!</h2>
-
-                  <p>
-                   I'm currently completing my degree at the University of Melbourne.
-                    I study Politics and International Affairs. When I'm not doing school work,
-                    I enjoy additional creative labor — here you'll find my projects and my resume.
-                    Thanks for stopping by!
-                  </p>
-
-                  <div class="links">
-                    <a href="#">LinkedIn</a>
-                    <a href="#">Github</a>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div class="section" id="resume">
+          <h2>Resume</h2>
+          <p>
+            I'm experienced in web development, software engineering, and building full-stack applications.
+          </p>
+          <p>
+            <strong>Skills:</strong> JavaScript, React, Python, Full-stack development, UI/UX
+          </p>
+          <p>
+            <strong>Education:</strong> [Your degree/school]
+          </p>
+          <div class="links">
+            <a href="#">Download Resume (PDF)</a>
           </div>
         </div>
       </div>
     </div>
+
+    <script>
+      const navBtns = document.querySelectorAll(".nav-btn");
+      const sections = document.querySelectorAll(".section");
+
+      navBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          // Remove active class from all
+          navBtns.forEach((b) => b.classList.remove("active"));
+          sections.forEach((s) => s.classList.remove("active"));
+
+          // Add active to clicked
+          btn.classList.add("active");
+          const sectionId = btn.getAttribute("data-section");
+          document.getElementById(sectionId).classList.add("active");
+        });
+      });
+    </script>
   </body>
 </html>

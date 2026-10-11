@@ -139,6 +139,10 @@
       background: #ffffff;
     }
 
+    .project-card + .project-card {
+      margin-top: 24px;
+    }
+
     .project-card h3 {
       font-size: 20px;
       line-height: 1.4;
@@ -180,6 +184,31 @@
 
     .project-activities p:last-child {
       margin-bottom: 0;
+    }
+
+    .art-gallery {
+      display: grid;
+      gap: 28px;
+      margin-top: 24px;
+    }
+
+    .art-gallery figure {
+      margin: 0;
+    }
+
+    .art-gallery img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 560px;
+      margin: 0 auto;
+    }
+
+    .art-gallery figcaption {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-top: 14px;
     }
 
     @media (max-width: 600px) {
@@ -375,6 +404,84 @@
                 With a little more time on my hands, I also wanted to
                 use some of it to give back to the community around me.
               </p>
+            </div>
+          </details>
+        </article>
+
+        <article class="project-card">
+          <h3>Art portfolio</h3>
+          <p class="project-date">2021 – onwards</p>
+
+          <p>
+            A digital showroom of curiosities for my visual projects,
+            from paintings and sketches to sculptures and photographs.
+            Entirely for fun.
+          </p>
+
+          <details class="project-details">
+            <summary>View artworks</summary>
+
+            <div class="art-gallery">
+              <figure>
+                <a
+                  href="sanso.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open the chopstick sculpture image"
+                >
+                  <img
+                    src="sanso.png"
+                    loading="lazy"
+                    alt="Three views of a rounded sculpture made from densely arranged chopsticks."
+                  >
+                </a>
+
+                <figcaption>
+                  Inspired by Rosalie Gascoigne, I used chopsticks to
+                  evoke the form of a Korean ancestral gravesite, or
+                  <em>sanso</em> (산소).
+                </figcaption>
+              </figure>
+
+              <figure>
+                <a
+                  href="caravaggio-fillide.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open the painting of Caravaggio and Fillide Melandroni"
+                >
+                  <img
+                    src="caravaggio-fillide.png"
+                    loading="lazy"
+                    alt="Painting of two figures together against a dark background, with one holding a white flower."
+                  >
+                </a>
+
+                <figcaption>
+                  Painted Caravaggio alongside Fillide Melandroni,
+                  one of his favourite muses.
+                </figcaption>
+              </figure>
+
+              <figure>
+                <a
+                  href="politician-portrait.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open the portrait in the style of Egon Schiele"
+                >
+                  <img
+                    src="politician-portrait.png"
+                    loading="lazy"
+                    alt="Tall painted portrait of a bespectacled figure with an exposed torso and a red lower garment."
+                  >
+                </a>
+
+                <figcaption>
+                  Large portraiture of a politician (produced for class)
+                  in the style of Egon Schiele.
+                </figcaption>
+              </figure>
             </div>
           </details>
         </article>

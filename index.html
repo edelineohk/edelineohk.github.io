@@ -6,6 +6,10 @@
   <title>Edeline Ohk</title>
 
   <style>
+    :root {
+      --globe-cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%2213%22%20fill%3D%22white%22%20stroke%3D%22white%22%20stroke-width%3D%224%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.4%22%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%2212%22%2F%3E%3Cellipse%20cx%3D%2216%22%20cy%3D%2216%22%20rx%3D%226%22%20ry%3D%2212%22%2F%3E%3Cpath%20d%3D%22M4%2016h24M6%209q10%206%2020%200M6%2023q10-6%2020%200%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") 16 16;
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -211,6 +215,48 @@
       margin-top: 14px;
     }
 
+    .resume-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .resume-actions a {
+      display: inline-block;
+      padding: 10px 16px;
+      border: 1px solid #cccccc;
+      background: #eeeeee;
+      color: #000000;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .resume-actions a:hover {
+      background: #dddddd;
+    }
+
+    .resume-preview {
+      display: block;
+      width: 100%;
+      height: 720px;
+      border: 1px solid #e5e5e5;
+      background: #ffffff;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      html,
+      body {
+        cursor: var(--globe-cursor), auto;
+      }
+
+      button,
+      a,
+      .project-details summary {
+        cursor: var(--globe-cursor), pointer;
+      }
+    }
+
     @media (max-width: 600px) {
       .shell {
         padding: 25px 22px 50px;
@@ -306,17 +352,19 @@
         <h2>Hi, I’m Edeline!</h2>
 
         <p>
-          I study Politics and International Relations at the University
+          I study Politics and International Affairs at the University
           of Melbourne. Before university, I worked for the Australian
           Government in Canberra and Washington, D.C., across public
           administration, trade and economic security.
         </p>
 
         <p>
-          I’m interested in politics, diplomacy, borders, critical minerals,
-          and generally anything that gives me an excuse to learn about
-          how the world works. Here you’ll find some of my projects and
-          experience. Thanks for stopping by!
+          I’m especially interested in how Australia navigates the
+          international questions shaping our time, from supply security
+          in a new technological and climate era to migration, borders
+          and sovereignty. Currently, when I’m not doing school work,
+          I enjoy some creative labour and local history. Here you’ll
+          find some of my projects and my resume. Thanks for stopping by!
         </p>
 
         <div class="links">
@@ -516,24 +564,29 @@
         <h2>Resume</h2>
 
         <p>
-          My experience spans government, international affairs,
+          I have some experience across government, international affairs,
           research and public administration.
         </p>
 
-        <p>
-          <strong>Education</strong><br>
-          University of Melbourne
-        </p>
+        <div class="resume-actions">
+          <a
+            href="resume%20(3).pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >View resume</a>
 
-        <p class="note">
-          For a copy of my resume, please get in touch.
-        </p>
-
-        <div class="links">
-          <a href="mailto:ohkedeline@gmail.com?subject=Resume%20enquiry">
-            Request my resume
-          </a>
+          <a
+            href="resume%20(3).pdf"
+            download="Edeline-Ohk-Resume.pdf"
+          >Download resume</a>
         </div>
+
+        <iframe
+          class="resume-preview"
+          src="resume%20(3).pdf#view=FitH"
+          title="Edeline Ohk’s resume"
+          loading="lazy"
+        ></iframe>
       </section>
     </main>
   </div>
